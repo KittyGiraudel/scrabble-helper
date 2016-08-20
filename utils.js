@@ -12,7 +12,7 @@ const displayWords = (words) =>
   words.forEach(display)
 
 const isNotNull = (value) =>
-  value && value.length > 0
+  !!(value && value.length > 0)
 
 const isMatchingPrefix = (value, prefix = '') =>
   prefix ? value.startsWith(prefix) && value !== prefix : true
@@ -23,20 +23,20 @@ const isMatchingSuffix = (value, suffix = '') =>
 const isMatchingLength = (value, length) =>
   length ? value.length === Number(length) : true
 
-const createQuery = (object) =>
+const createQuery = (object = {}) =>
   Object.keys(object)
     .reduce((acc, key, index) =>
       acc + (index === 0 ? '?' : '&') + key + '=' + object[key]
     , '')
 
-const getFormData = (fields, data) =>
+const getFormData = (fields = {}, data = {}) =>
   Object.keys(fields)
     .reduce((acc, key) => {
       acc[key] = data[fields[key]] || data[key] || fields[key]
       return acc
     }, {})
 
-const getRequestOptions = (config, data) => {
+const getRequestOptions = (config, data = {}) => {
   const { method, uri, fields } = config
   const form = getFormData(fields, data)
 
@@ -76,4 +76,16 @@ const findWords = (data) => {
     )
 }
 
-module.exports = { findWords, displayWords }
+module.exports = {
+  sortByLength,
+  isNotNull,
+  isMatchingSuffix,
+  isMatchingPrefix,
+  isMatchingLength,
+  createQuery,
+  getFormData,
+  getRequestOptions,
+  getConfiguration,
+  findWords,
+  displayWords
+}

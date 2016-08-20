@@ -1,5 +1,9 @@
+#!/usr/bin/env node
+
+'use strict'
+
 const program = require('commander')
-const { findWords, displayWords } = require('./utils')
+const { findWords, displayWords } = require('../src/utils')
 
 program
   .option('--language <language>', 'Language')

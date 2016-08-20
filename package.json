@@ -1,7 +1,9 @@
 {
   "name": "scrabble-helper",
   "version": "0.1.1",
-  "bin": "index.js",
+  "bin": {
+    "scrabble-helper": "bin/scrabble-helper"
+  },
   "preferGlobal": true,
   "scripts": {
     "test": "mocha"

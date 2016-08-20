@@ -3,6 +3,8 @@
 'use strict'
 
 const program = require('commander')
+const ora = require('ora')
+const spinner = ora('Looking for words…')
 const { findWords, displayWords } = require('../src/utils')
 
 program
@@ -13,4 +15,9 @@ program
   .option('--length <length>', 'Length')
   .parse(process.argv)
 
-findWords(program).then(displayWords)
+spinner.start()
+findWords(program)
+  .then((words) => {
+    spinner.stop()
+    displayWords(words)
+  })

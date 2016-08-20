@@ -8,7 +8,7 @@ const sortByLength = (a, b) =>
 const display = (e) =>
   console.log(`[${e.length}] ${e}`)
 
-const displayWords = (words) =>
+const displayWords = (words = []) =>
   words.forEach(display)
 
 const isNotNull = (value) =>
@@ -73,6 +73,7 @@ const findWords = (data) => {
         .filter((e) => isMatchingSuffix(e, suffix))
         .sort(sortByLength)
     )
+    .catch((err) => console.log(err))
 }
 
 module.exports = {

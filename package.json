@@ -1,0 +1,11 @@
+{
+  "name": "scrabble-helper",
+  "version": "0.1.0",
+  "main": "index.js",
+  "preferGlobal": true,
+  "dependencies": {
+    "cheerio": "^0.20.0",
+    "commander": "^2.9.0",
+    "request-promise": "^4.1.1"
+  }
+}

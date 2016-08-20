@@ -26,3 +26,5 @@ scrabble-helper --language en  --letters rtnceao  --suffix s
 # All in one
 scrabble-helper --language en  --letters rtnceao  --length 6  --prefix po  --suffix s
 ```
+
+![Example of scrabble-helper in action](http://i.imgur.com/3iMUxu0r.png)

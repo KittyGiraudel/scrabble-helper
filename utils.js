@@ -46,13 +46,12 @@ const getRequestOptions = (config, data = {}) => {
 
 const getConfiguration = (language) => {
   const ALLOWED_LANGUAGES = Object.keys(ENDPOINTS)
-  language = language.toLowerCase()
 
-  if (ALLOWED_LANGUAGES.indexOf(language) === -1) {
+  if (!language || ALLOWED_LANGUAGES.indexOf(language.toLowerCase()) === -1) {
     throw new Error('Unknown language, please use one of: ' + ALLOWED_LANGUAGES.join(', '))
   }
 
-  return ENDPOINTS[language]
+  return ENDPOINTS[language.toLowerCase()]
 }
 
 const findWords = (data) => {
